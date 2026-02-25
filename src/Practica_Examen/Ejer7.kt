@@ -1,37 +1,41 @@
 package practicas
+
 //
 fun main() {
-    println("Introduce la primera nota")
-    val nota1 : Float = (readLine()?: "0").toFloat()
+    try {
+        println("Introduce la primera nota")
+        val nota1: Float = (readLine() ?: "0").toFloat()
 
-    println("OKEY AHORA CON LA NOTA NUMERO 2")
-    val nota2 : Float = (readLine()?: "0").toFloat()
+        println("OKEY AHORA CON LA NOTA NUMERO 2")
+        val nota2: Float = (readLine() ?: "0").toFloat()
 
-    println("OKEY AHORA CON LA NOTA NUMERO 3")
-    val nota3 : Float = (readLine()?: "0").toFloat()
+        println("OKEY AHORA CON LA NOTA NUMERO 3")
+        val nota3: Float = (readLine() ?: "0").toFloat()
 
-    println("OKEY AHORA CON LA NOTA NUMERO 4")
-    val nota4 : Float = (readLine()?: "0").toFloat()
+        println("OKEY AHORA CON LA NOTA NUMERO 4")
+        val nota4: Float = (readLine() ?: "0").toFloat()
 
 
-    val promedio = ((nota1 + nota2 + nota3 + nota4) / 4)
+        val promedio = ((nota1 + nota2 + nota3 + nota4) / 4)
 
-    //println(promedio)
+        //println(promedio)
 
-    when{
-        promedio >= 7 -> println("NOTABLE")
-        promedio >=5 && promedio <7 -> println("APROBADO")
-        promedio <5 -> {
-            println("EL ALUMNO SE PRESENTARA A RECUPERACIÓN?")
-            val respuesta : String? = readLine()?.uppercase()?:""
-            when{
-                respuesta == "SI" -> print
+        when {
+            promedio >= 7 -> println("NOTABLE")
+            promedio >= 5 && promedio < 7 -> println("APROBADO")
+            promedio < 5 -> {
+                println("EL ALUMNO SE PRESENTARA A RECUPERACIÓN? (SI/NO)")
+                val respuesta: String? = readLine()?.uppercase() ?: ""
+                when {
+                    respuesta == "SI" -> println("PENDIENTE")
+                    respuesta == "NO" -> println("SUSPENSO")
+                }
             }
         }
+    } catch (e: Exception) {
+        println("OCURRIO UN ERROR")
     }
 }
-
-
 
 
 //fun main() {
