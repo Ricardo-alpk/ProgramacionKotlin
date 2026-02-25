@@ -1,4 +1,4 @@
-package Practica_Examen
+package PRACTICA6
 
 fun main() {
     var dato1 = 15 //variableMutable
