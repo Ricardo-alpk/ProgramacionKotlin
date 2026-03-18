@@ -7,24 +7,24 @@ package PRACTICA8
  * 3.- Pero con estas condiciones:
  * a. Si el número es múltiplo de 3, saltarlo con continue.
  * b. Si el número llega a 20, detener el bucle con break.*/
+
 fun main(){
-    println("Ingresa un numero ENTERO")
+    println("Introduce un numero positvo")
+    try {
+        var num: Int = (readLine() ?: "0").toInt()
 
-    //REPASO : VAR: puede cambiao   VAL: Es constante
-
-    var num = readLine()?.toInt()?: 0
-
-    for (i in 1 .. num){
-        if(i % 3 == 0){
-            continue // con esto salta los multiplos de 3
+        for (i in 1 .. num){
+            if(i % 3 == 0){
+                continue
+            }
+            if (i == 20){
+                println("LLegamos al limite")
+                break
+            }
+            println(i)
         }
 
-        if(i == 20){
-            println("ok llego al 20 , es el fin del bucle")
-            break
-        }
-
-        println("numero $i")
+    } catch (e: Exception){
+        println("Error")
     }
-
 }

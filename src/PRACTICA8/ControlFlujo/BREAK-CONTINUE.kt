@@ -10,4 +10,15 @@ fun main() {
 
         println(i)
     }
+
+    /**
+     * Imprimir los multiplos de 4 del 1 al 20
+     */
+
+    for (i in 1..20){
+        if(i % 4 != 0){
+            continue
+        }
+        println("Multiplo de 4: ${i}")
+    }
 }

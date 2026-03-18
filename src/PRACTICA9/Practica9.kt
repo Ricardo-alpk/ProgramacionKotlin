@@ -11,33 +11,60 @@ utilizando una etiqueta de bucle (continue@nombreEtiqueta).
 6.- El programa debe imprimir el seguimiento de las iteraciones, indicando qué valor se está evaluando en el
 bucle externo y qué pares cumplen la condición.
 * */
+//fun main(){
+//    val arr1 = arrayOf<Int>(1, 2, 3, 4)
+//
+//    val arr2 = arrayOf<Int>(5, 6, 7, 8)
+//
+//    // Etiquetamos el bucle externo para poder referenciarlo si es necesario
+//    bucleExterno@ for (num1 in arr1) {
+//        // Imprimimos el número de la primera matriz en cada iteración del bucle externo
+//        println("Iteración de bucle externo: num1 = $num1")
+//
+//        for (num2 in arr2) {
+//            val suma = num1 + num2
+//
+//            // Si la suma es menor o igual a 10, continuamos con la siguiente iteración del bucle externo
+//            if (suma > 10) {
+//                // continue@bucleExterno salta el resto del código dentro del bucle más interno
+//                // y pasa directamente a la siguiente iteración del bucle externo 'bucleExterno'
+//                println("Suma ($suma) > 10, saltando al siguiente num1...")
+//                continue@bucleExterno
+//            }
+//
+//            // Si no saltamos, imprimimos el par
+//            println("  Pares válidos: ($num1, $num2), Suma = $suma")
+//        }
+//    }
+//}
+
 fun main(){
-    val arr1 = arrayOf<Int>(1, 2, 3, 4)
+    val arr1 = arrayOf<Int>(1,2,3,4)
 
-    val arr2 = arrayOf<Int>(5, 6, 7, 8)
+    val arr2 = arrayOf<Int>(5,6,7,8)
 
-    // Etiquetamos el bucle externo para poder referenciarlo si es necesario
-    bucleExterno@ for (num1 in arr1) {
-        // Imprimimos el número de la primera matriz en cada iteración del bucle externo
-        println("Iteración de bucle externo: num1 = $num1")
-
-        for (num2 in arr2) {
-            val suma = num1 + num2
-
-            // Si la suma es menor o igual a 10, continuamos con la siguiente iteración del bucle externo
-            if (suma > 10) {
-                // continue@bucleExterno salta el resto del código dentro del bucle más interno
-                // y pasa directamente a la siguiente iteración del bucle externo 'bucleExterno'
-                println("Suma ($suma) > 10, saltando al siguiente num1...")
-                continue@bucleExterno
-            }
-
-            // Si no saltamos, imprimimos el par
-            println("  Pares válidos: ($num1, $num2), Suma = $suma")
+    //Ejewmplo de For - Each
+    try {
+        for (i in arr1) {
+            println(i)
         }
+        var i = 1
+        Loop@ for (elementoExt in arr2) {
+             for (elementoInt in arr1) {
+                //println("Externo ${elementoExt}, Interno : ${elementoInt}")
+                println("Combinación N${i++}: ${elementoExt}${elementoInt}")
+
+                 var suma = elementoInt + elementoExt
+                 println("Suma: ${suma}")
+
+                 if (suma > 10) {
+                     println("Mayor que 10, saltando la siguiente numero de arr2...")
+                     continue@Loop
+                 }
+
+            }
+        }
+    } catch (e: Exception){
+        println("Ocurrio un ERROR")
     }
-
-
-
-
 }
